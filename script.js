@@ -178,7 +178,7 @@ function showEvents(){
 
                 <p>
                     Budget:
-                    ₹${e.budget}
+                     ${e.budget}
                 </p>
 
                 <p>
