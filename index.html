@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EventSphere</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h1>EventSphere</h1>
+    <p>Event Management</p>
+    <button>Dashboard</button>
+    <button>Events</button>
+    <button>Venues</button>
+    <button>Resources</button>
+    <button>Reports</button>
+</div>
+
+<div class="main">
+
+    <h2>Event Planning & Resource Management</h2>
+
+    <div class="cards">
+        <div class="card">Events <b id="eventCount">0</b></div>
+        <div class="card">Venues <b id="venueCount">0</b></div>
+        <div class="card">Resources <b id="resourceCount">0</b></div>
+    </div>
+
+    <div class="section">
+        <h2>Create Event</h2>
+
+        <form id="eventForm">
+            <input id="eventName" placeholder="Event Name" required>
+            <input id="eventType" placeholder="Event Type" required>
+            <input id="eventDate" type="date" required>
+            <input id="eventTime" type="time" required>
+            <input id="eventBudget" type="number" placeholder="Budget" required>
+            <input id="eventParticipants" type="number" placeholder="Participants" required>
+            <button>Create Event</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Events</h2>
+        <div id="eventList">No Events Created Yet.</div>
+    </div>
+
+    <div class="section">
+        <h2>Add Venue</h2>
+
+        <form id="venueForm">
+            <input id="venueName" placeholder="Venue Name" required>
+            <input id="venueLocation" placeholder="Location" required>
+            <input id="venueCapacity" type="number" placeholder="Capacity" required>
+            <button>Add Venue</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Venues</h2>
+        <div id="venueList">No Venues Added Yet.</div>
+    </div>
+
+    <div class="section">
+        <h2>Assign Venue</h2>
+
+        <form id="assignForm">
+            <select id="eventSelect" required>
+                <option value="">Select Event</option>
+            </select>
+
+            <select id="venueSelect" required>
+                <option value="">Select Venue</option>
+            </select>
+
+            <button>Assign Venue</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Add Resource</h2>
+
+        <form id="resourceForm">
+            <input id="resourceName" placeholder="Resource Name" required>
+            <input id="resourceQuantity" type="number" placeholder="Quantity" min="1" required>
+            <button>Add Resource</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Resources</h2>
+        <div id="resourceList">No Resources Added Yet.</div>
+    </div>
+
+    <div class="section">
+        <h2>Allocate Resource</h2>
+
+        <form id="allocateForm">
+            <select id="resourceEvent" required>
+                <option value="">Select Event</option>
+            </select>
+
+            <select id="resourceSelect" required>
+                <option value="">Select Resource</option>
+            </select>
+
+            <input id="requiredQuantity"
+                   type="number"
+                   placeholder="Required Quantity"
+                   min="1"
+                   required>
+
+            <button>Allocate Resource</button>
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Event Report</h2>
+        <button onclick="report()">Generate Report</button>
+        <div id="report"></div>
+    </div>
+
+    <div id="message"></div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
