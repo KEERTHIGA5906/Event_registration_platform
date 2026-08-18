@@ -1,72 +1,209 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>EventSphere</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="sidebar">
+
     <h1>EventSphere</h1>
     <p>Event Management</p>
-    <button>Dashboard</button>
-    <button>Events</button>
-    <button>Venues</button>
-    <button>Resources</button>
-    <button>Reports</button>
+
+    <button onclick="location.href='index.html'">
+        Dashboard
+    </button>
+
+    <button onclick="location.href='#events'">
+        Events
+    </button>
+
+    <button onclick="location.href='#venues'">
+        Venues
+    </button>
+
+    <button onclick="location.href='#resources'">
+        Resources
+    </button>
+
+    <button onclick="location.href='registration.html'">
+        Registration
+    </button>
+
+    <button onclick="location.href='#vendors'">
+        Vendors
+    </button>
+
+    <button onclick="location.href='#reports'">
+        Reports
+    </button>
+
 </div>
+
 
 <div class="main">
 
-    <h2>Event Planning & Resource Management</h2>
+    <div class="top">
+        <div>
+            <h2>Event Planning & Resource Management</h2>
+            <p>EventSphere Management Dashboard</p>
+        </div>
 
-    <div class="cards">
-        <div class="card">Events <b id="eventCount">0</b></div>
-        <div class="card">Venues <b id="venueCount">0</b></div>
-        <div class="card">Resources <b id="resourceCount">0</b></div>
+        <button onclick="location.href='registration.html'">
+            + Register Participant
+        </button>
     </div>
 
-    <div class="section">
+
+    <!-- DASHBOARD CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+            <span>Total Events</span>
+            <b id="eventCount">0</b>
+        </div>
+
+        <div class="card">
+            <span>Total Venues</span>
+            <b id="venueCount">0</b>
+        </div>
+
+        <div class="card">
+            <span>Total Resources</span>
+            <b id="resourceCount">0</b>
+        </div>
+
+        <div class="card">
+            <span>Registrations</span>
+            <b id="registrationCount">0</b>
+        </div>
+
+        <div class="card">
+            <span>Vendors</span>
+            <b id="vendorCount">0</b>
+        </div>
+
+    </div>
+
+
+    <!-- CREATE EVENT -->
+
+    <div class="section" id="events">
+
         <h2>Create Event</h2>
 
         <form id="eventForm">
-            <input id="eventName" placeholder="Event Name" required>
-            <input id="eventType" placeholder="Event Type" required>
-            <input id="eventDate" type="date" required>
-            <input id="eventTime" type="time" required>
-            <input id="eventBudget" type="number" placeholder="Budget" required>
-            <input id="eventParticipants" type="number" placeholder="Participants" required>
+
+            <input
+                id="eventName"
+                placeholder="Event Name"
+                required>
+
+            <input
+                id="eventType"
+                placeholder="Event Type"
+                required>
+
+            <input
+                id="eventDate"
+                type="date"
+                required>
+
+            <input
+                id="eventTime"
+                type="time"
+                required>
+
+            <input
+                id="eventBudget"
+                type="number"
+                placeholder="Budget"
+                min="0"
+                required>
+
+            <input
+                id="eventParticipants"
+                type="number"
+                placeholder="Maximum Participants"
+                min="1"
+                required>
+
             <button>Create Event</button>
+
         </form>
+
     </div>
 
+
+    <!-- EVENTS -->
+
     <div class="section">
+
         <h2>Events</h2>
-        <div id="eventList">No Events Created Yet.</div>
+
+        <div id="eventList">
+            No Events Created Yet.
+        </div>
+
     </div>
 
-    <div class="section">
+
+    <!-- VENUE -->
+
+    <div class="section" id="venues">
+
         <h2>Add Venue</h2>
 
         <form id="venueForm">
-            <input id="venueName" placeholder="Venue Name" required>
-            <input id="venueLocation" placeholder="Location" required>
-            <input id="venueCapacity" type="number" placeholder="Capacity" required>
+
+            <input
+                id="venueName"
+                placeholder="Venue Name"
+                required>
+
+            <input
+                id="venueLocation"
+                placeholder="Location"
+                required>
+
+            <input
+                id="venueCapacity"
+                type="number"
+                placeholder="Capacity"
+                min="1"
+                required>
+
             <button>Add Venue</button>
+
         </form>
+
     </div>
 
+
+    <!-- VENUES -->
+
     <div class="section">
+
         <h2>Venues</h2>
-        <div id="venueList">No Venues Added Yet.</div>
+
+        <div id="venueList">
+            No Venues Added Yet.
+        </div>
+
     </div>
 
+
+    <!-- ASSIGN VENUE -->
+
     <div class="section">
+
         <h2>Assign Venue</h2>
 
         <form id="assignForm">
+
             <select id="eventSelect" required>
                 <option value="">Select Event</option>
             </select>
@@ -76,28 +213,60 @@
             </select>
 
             <button>Assign Venue</button>
+
         </form>
+
     </div>
 
-    <div class="section">
+
+    <!-- RESOURCE -->
+
+    <div class="section" id="resources">
+
         <h2>Add Resource</h2>
 
         <form id="resourceForm">
-            <input id="resourceName" placeholder="Resource Name" required>
-            <input id="resourceQuantity" type="number" placeholder="Quantity" min="1" required>
+
+            <input
+                id="resourceName"
+                placeholder="Resource Name"
+                required>
+
+            <input
+                id="resourceQuantity"
+                type="number"
+                placeholder="Quantity"
+                min="1"
+                required>
+
             <button>Add Resource</button>
+
         </form>
+
     </div>
 
+
+    <!-- RESOURCES -->
+
     <div class="section">
+
         <h2>Resources</h2>
-        <div id="resourceList">No Resources Added Yet.</div>
+
+        <div id="resourceList">
+            No Resources Added Yet.
+        </div>
+
     </div>
 
+
+    <!-- ALLOCATE RESOURCE -->
+
     <div class="section">
+
         <h2>Allocate Resource</h2>
 
         <form id="allocateForm">
+
             <select id="resourceEvent" required>
                 <option value="">Select Event</option>
             </select>
@@ -106,27 +275,191 @@
                 <option value="">Select Resource</option>
             </select>
 
-            <input id="requiredQuantity"
-                   type="number"
-                   placeholder="Required Quantity"
-                   min="1"
-                   required>
+            <input
+                id="requiredQuantity"
+                type="number"
+                placeholder="Required Quantity"
+                min="1"
+                required>
 
             <button>Allocate Resource</button>
+
         </form>
+
     </div>
 
+
+    <!-- REGISTRATION -->
+
     <div class="section">
-        <h2>Event Report</h2>
-        <button onclick="report()">Generate Report</button>
-        <div id="report"></div>
+
+        <div class="section-header">
+
+            <h2>Participant Registration</h2>
+
+            <button onclick="location.href='registration.html'">
+                Open Registration
+            </button>
+
+        </div>
+
+        <div class="filter-row">
+
+            <select id="registrationEventFilter">
+                <option value="">All Events</option>
+            </select>
+
+            <button onclick="showRegistrations()">
+                View Registrations
+            </button>
+
+        </div>
+
+        <div id="registrationList">
+            No Registrations Yet.
+        </div>
+
     </div>
+
+
+    <!-- ATTENDANCE -->
+
+    <div class="section">
+
+        <h2>Attendance Tracking</h2>
+
+        <p class="hint">
+            Enter the participant's ticket ID to check in.
+        </p>
+
+        <form id="attendanceForm">
+
+            <input
+                id="attendanceTicket"
+                placeholder="Example: TKT1001"
+                required>
+
+            <button>Check In</button>
+
+        </form>
+
+        <div id="attendanceMessage"></div>
+
+    </div>
+
+
+    <!-- VENDOR -->
+
+    <div class="section" id="vendors">
+
+        <h2>Add Vendor</h2>
+
+        <form id="vendorForm">
+
+            <input
+                id="vendorName"
+                placeholder="Vendor Name"
+                required>
+
+            <input
+                id="vendorService"
+                placeholder="Service Type"
+                required>
+
+            <input
+                id="vendorPhone"
+                placeholder="10 Digit Phone Number"
+                maxlength="10"
+                required>
+
+            <input
+                id="vendorEmail"
+                type="email"
+                placeholder="Email"
+                required>
+
+            <button>Add Vendor</button>
+
+        </form>
+
+    </div>
+
+
+    <!-- VENDOR LIST -->
+
+    <div class="section">
+
+        <h2>Vendors</h2>
+
+        <div id="vendorList">
+            No Vendors Added Yet.
+        </div>
+
+    </div>
+
+
+    <!-- VENDOR ASSIGNMENT -->
+
+    <div class="section">
+
+        <h2>Assign Vendor</h2>
+
+        <form id="vendorAssignmentForm">
+
+            <select id="vendorEvent" required>
+                <option value="">Select Event</option>
+            </select>
+
+            <select id="vendorSelect" required>
+                <option value="">Select Vendor</option>
+            </select>
+
+            <input
+                id="vendorAssignmentService"
+                placeholder="Service"
+                required>
+
+            <button>Assign Vendor</button>
+
+        </form>
+
+    </div>
+
+
+    <!-- ASSIGNMENTS -->
+
+    <div class="section">
+
+        <h2>Vendor Assignments</h2>
+
+        <div id="assignmentList">
+            No Vendor Assignments Yet.
+        </div>
+
+    </div>
+
+
+    <!-- REPORT -->
+
+    <div class="section" id="reports">
+
+        <h2>Event Report</h2>
+
+        <button onclick="report()">
+            Generate Report
+        </button>
+
+        <div id="report"></div>
+
+    </div>
+
 
     <div id="message"></div>
 
 </div>
 
+
 <script src="script.js"></script>
+
 </body>
 </html>
-

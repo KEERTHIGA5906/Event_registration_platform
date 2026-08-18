@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>EventSphere - Digital Ticket</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="ticket-page">
+
+<div class="ticket-container">
+
+    <div class="ticket">
+
+        <div class="ticket-top">
+
+            <h1>EventSphere</h1>
+
+            <p>Digital Event Ticket</p>
+
+        </div>
+
+
+        <div class="ticket-body">
+
+            <div class="ticket-info">
+
+                <p>
+                    <span>Participant</span>
+                    <b id="ticketName"></b>
+                </p>
+
+                <p>
+                    <span>Registration ID</span>
+                    <b id="ticketReg"></b>
+                </p>
+
+                <p>
+                    <span>Ticket ID</span>
+                    <b id="ticketId"></b>
+                </p>
+
+                <p>
+                    <span>Event</span>
+                    <b id="ticketEvent"></b>
+                </p>
+
+                <p>
+                    <span>Date</span>
+                    <b id="ticketDate"></b>
+                </p>
+
+                <p>
+                    <span>Time</span>
+                    <b id="ticketTime"></b>
+                </p>
+
+                <p>
+                    <span>Venue</span>
+                    <b id="ticketVenue"></b>
+                </p>
+
+            </div>
+
+
+            <div class="qr-area">
+
+                <div id="qrcode"></div>
+
+                <small>
+                    Scan to verify ticket
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="ticket-footer">
+
+            <p>
+                Please show this ticket during entry.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="ticket-actions">
+
+        <button onclick="window.print()">
+            Print Ticket
+        </button>
+
+        <button onclick="location.href='index.html'">
+            Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script src="ticket.js"></script>
+
+</body>
+</html>
