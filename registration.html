@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>EventSphere - Registration</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="registration-page">
+
+<div class="register-box">
+
+    <div class="register-header">
+
+        <h1>EventSphere</h1>
+
+        <p>Event Participant Registration</p>
+
+    </div>
+
+
+    <form id="registrationForm">
+
+        <div class="form-title">
+
+            <h2>Register for an Event</h2>
+
+            <p>
+                Please enter your details carefully.
+            </p>
+
+        </div>
+
+
+        <label>Select Event</label>
+
+        <select id="eventId" required>
+
+            <option value="">
+                Select an Event
+            </option>
+
+        </select>
+
+
+        <label>Student Name</label>
+
+        <input
+            id="studentName"
+            placeholder="Enter your full name"
+            required>
+
+
+        <label>Email Address</label>
+
+        <input
+            id="email"
+            type="email"
+            placeholder="student@gmail.com"
+            required>
+
+
+        <label>Phone Number</label>
+
+        <input
+            id="phone"
+            type="tel"
+            maxlength="10"
+            placeholder="9876543210"
+            required>
+
+
+        <label>College Name</label>
+
+        <input
+            id="college"
+            placeholder="Enter college name"
+            required>
+
+
+        <label>Department</label>
+
+        <input
+            id="department"
+            placeholder="Example: AI & ML"
+            required>
+
+
+        <label>Year</label>
+
+        <select id="year" required>
+
+            <option value="">
+                Select Year
+            </option>
+
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+
+        </select>
+
+
+        <label>Terms & Conditions</label>
+
+        <div class="terms">
+
+            <input
+                type="checkbox"
+                id="terms"
+                required>
+
+            <span>
+                I confirm that the information provided
+                is correct.
+            </span>
+
+        </div>
+
+
+        <button class="register-button">
+            Complete Registration
+        </button>
+
+
+        <div id="registrationMessage"></div>
+
+    </form>
+
+
+    <button
+        class="back-button"
+        onclick="location.href='index.html'">
+
+        ← Back to Dashboard
+
+    </button>
+
+</div>
+
+
+<script src="registration.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EventSphere - Event Insights</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="analytics.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <h2>
+            EventSphere
+        </h2>
+
+
+        <button onclick="location.href='index.html'">
+            Dashboard
+        </button>
+
+
+        <button onclick="location.href='index.html#events'">
+            Events
+        </button>
+
+
+        <button onclick="location.href='index.html#venues'">
+            Venues
+        </button>
+
+
+        <button onclick="location.href='index.html#resources'">
+            Resources
+        </button>
+
+
+        <button onclick="location.href='registration.html'">
+            Registration
+        </button>
+
+
+        <button onclick="location.href='index.html#vendors'">
+            Vendors
+        </button>
+
+
+        <button onclick="location.href='index.html#reports'">
+            Reports
+        </button>
+
+
+        <button onclick="location.href='milestone3.html'">
+            Event Operations
+        </button>
+
+
+        <button onclick="location.href='api.html'">
+            System Services
+        </button>
+
+
+        <button onclick="location.href='analytics.html'">
+            Event Insights
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main">
+
+        <!-- ================= HEADER ================= -->
+
+        <header>
+
+            <h1>
+                Event Insights
+            </h1>
+
+            <p>
+                Analyze event performance, attendance,
+                finance and resource utilization.
+            </p>
+
+        </header>
+
+
+        <!-- ================= KPI CARDS ================= -->
+
+        <section class="analytics-grid">
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Events
+                    </h3>
+
+                    <p id="totalEvents">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    👥
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Registrations
+                    </h3>
+
+                    <p id="totalRegistrations">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    ✅
+                </div>
+
+                <div>
+
+                    <h3>
+                        Attendance Rate
+                    </h3>
+
+                    <p id="attendanceRate">
+                        0%
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    💰
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Budget
+                    </h3>
+
+                    <p id="totalBudget">
+                        ₹0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    💸
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Expenses
+                    </h3>
+
+                    <p id="totalExpenses">
+                        ₹0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    🤝
+                </div>
+
+                <div>
+
+                    <h3>
+                        Sponsorship
+                    </h3>
+
+                    <p id="totalSponsorship">
+                        ₹0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    📦
+                </div>
+
+                <div>
+
+                    <h3>
+                        Resource Utilization
+                    </h3>
+
+                    <p id="resourceUtilization">
+                        0%
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-card">
+
+                <div class="analytics-icon">
+                    ⏳
+                </div>
+
+                <div>
+
+                    <h3>
+                        Pending Approvals
+                    </h3>
+
+                    <p id="pendingApprovals">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= EVENT PERFORMANCE ================= -->
+
+        <section class="analytics-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Event Performance
+                    </h2>
+
+                    <p>
+                        Compare registrations and attendance
+                        for your events.
+                    </p>
+
+                </div>
+
+
+                <select id="eventSelector">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="performance-summary">
+
+                <div class="performance-box">
+
+                    <span>
+                        Registrations
+                    </span>
+
+                    <strong id="selectedRegistrations">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="performance-box">
+
+                    <span>
+                        Checked In
+                    </span>
+
+                    <strong id="selectedAttendance">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="performance-box">
+
+                    <span>
+                        Attendance
+                    </span>
+
+                    <strong id="selectedAttendanceRate">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="performance-box">
+
+                    <span>
+                        Participant Capacity
+                    </span>
+
+                    <strong id="selectedCapacity">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <h3>
+                    Registration vs Attendance
+                </h3>
+
+                <div
+                    id="attendanceChart"
+                    class="bar-chart"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINANCIAL INSIGHTS ================= -->
+
+        <section class="analytics-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Financial Insights
+                    </h2>
+
+                    <p>
+                        Monitor budget allocation and
+                        spending across events.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="finance-summary">
+
+                <div class="finance-box">
+
+                    <span>
+                        Planned Budget
+                    </span>
+
+                    <strong id="financeBudget">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="finance-box">
+
+                    <span>
+                        Amount Spent
+                    </span>
+
+                    <strong id="financeExpenses">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="finance-box">
+
+                    <span>
+                        Remaining
+                    </span>
+
+                    <strong id="financeRemaining">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="finance-box">
+
+                    <span>
+                        Utilization
+                    </span>
+
+                    <strong id="financeUtilization">
+                        0%
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <h3>
+                    Budget vs Expenses
+                </h3>
+
+                <div
+                    id="budgetChart"
+                    class="budget-chart"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EVENT COMPARISON ================= -->
+
+        <section class="analytics-section">
+
+            <h2>
+                Event Comparison
+            </h2>
+
+            <p>
+                Compare the performance of different
+                events.
+            </p>
+
+
+            <div class="comparison-table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Event
+                            </th>
+
+                            <th>
+                                Registrations
+                            </th>
+
+                            <th>
+                                Attendance
+                            </th>
+
+                            <th>
+                                Attendance Rate
+                            </th>
+
+                            <th>
+                                Budget
+                            </th>
+
+                            <th>
+                                Expenses
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="comparisonTable">
+
+                        <tr>
+
+                            <td colspan="6">
+                                Loading event data...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESOURCE INSIGHTS ================= -->
+
+        <section class="analytics-section">
+
+            <h2>
+                Resource Utilization
+            </h2>
+
+            <p>
+                Identify how effectively event resources
+                are being used.
+            </p>
+
+
+            <div
+                id="resourceInsights"
+                class="resource-insights"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= OPTIMIZATION ================= -->
+
+        <section class="analytics-section">
+
+            <h2>
+                Event Optimization
+            </h2>
+
+            <p>
+                Recommendations based on current
+                event performance.
+            </p>
+
+
+            <div class="optimization-grid">
+
+
+                <div class="optimization-card">
+
+                    <div class="optimization-icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Budget Optimization
+                    </h3>
+
+                    <p id="budgetRecommendation">
+                        Analyzing event spending...
+                    </p>
+
+                </div>
+
+
+                <div class="optimization-card">
+
+                    <div class="optimization-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Attendance Optimization
+                    </h3>
+
+                    <p id="attendanceRecommendation">
+                        Analyzing attendance...
+                    </p>
+
+                </div>
+
+
+                <div class="optimization-card">
+
+                    <div class="optimization-icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        Resource Optimization
+                    </h3>
+
+                    <p id="resourceRecommendation">
+                        Analyzing resources...
+                    </p>
+
+                </div>
+
+
+                <div class="optimization-card">
+
+                    <div class="optimization-icon">
+                        📍
+                    </div>
+
+                    <h3>
+                        Venue Optimization
+                    </h3>
+
+                    <p id="venueRecommendation">
+                        Analyzing venue capacity...
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FORECAST ================= -->
+
+        <section class="analytics-section">
+
+            <h2>
+                Attendance Forecast
+            </h2>
+
+            <p>
+                Basic prediction of expected attendance
+                using current registration data.
+            </p>
+
+
+            <div class="forecast-container">
+
+                <div class="forecast-value">
+
+                    <span>
+                        Expected Attendance
+                    </span>
+
+                    <strong id="forecastAttendance">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="forecast-value">
+
+                    <span>
+                        Expected Attendance Rate
+                    </span>
+
+                    <strong id="forecastRate">
+                        0%
+                    </strong>
+
+                </div>
+
+
+                <div class="forecast-message">
+
+                    <h3>
+                        Forecast Summary
+                    </h3>
+
+                    <p id="forecastMessage">
+                        Select an event to view
+                        the attendance forecast.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= REPORTS ================= -->
+
+        <section class="analytics-section">
+
+            <h2>
+                Event Reports
+            </h2>
+
+            <p>
+                Export and review event performance
+                information.
+            </p>
+
+
+            <div class="report-actions">
+
+                <button
+                    onclick="generateCSV()"
+                >
+                    Export CSV
+                </button>
+
+
+                <button
+                    onclick="generatePDF()"
+                >
+                    Print / Save PDF
+                </button>
+
+
+                <button
+                    onclick="loadAnalytics()"
+                >
+                    Refresh Insights
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUICK NAVIGATION ================= -->
+
+        <section class="analytics-section">
+
+            <h2>
+                EventSphere Navigation
+            </h2>
+
+
+            <div class="filter-row">
+
+                <button
+                    onclick="location.href='index.html'"
+                >
+                    Dashboard
+                </button>
+
+
+                <button
+                    onclick="location.href='milestone3.html'"
+                >
+                    Event Operations
+                </button>
+
+
+                <button
+                    onclick="location.href='api.html'"
+                >
+                    System Services
+                </button>
+
+
+                <button
+                    onclick="location.href='roadmap.html'"
+                >
+                    Event Roadmap
+                </button>
+
+
+                <button
+                    onclick="location.href='campus.html'"
+                >
+                    Campus View
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= MESSAGE ================= -->
+
+        <div id="analyticsMessage"></div>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="analytics.js"></script>
+
+</body>
+
+</html>

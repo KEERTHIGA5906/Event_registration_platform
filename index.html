@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EventSphere - Event Management</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <h2>EventSphere</h2>
+
+        <button onclick="location.href='index.html'">
+            Dashboard
+        </button>
+
+        <button onclick="location.href='#events'">
+            Events
+        </button>
+
+        <button onclick="location.href='#venues'">
+            Venues
+        </button>
+
+        <button onclick="location.href='#resources'">
+            Resources
+        </button>
+
+        <button onclick="location.href='registration.html'">
+            Registration
+        </button>
+
+        <button onclick="location.href='#vendors'">
+            Vendors
+        </button>
+
+        <button onclick="location.href='#reports'">
+            Reports
+        </button>
+
+        <button onclick="location.href='milestone3.html'">
+            Event Operations
+        </button>
+
+        <button onclick="location.href='api.html'">
+            System Services
+        </button>
+
+        <button onclick="location.href='analytics.html'">
+            Event Insights
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header>
+
+            <h1>
+                Event Planning & Resource Management
+            </h1>
+
+            <p>
+                EventSphere Management Dashboard
+            </p>
+
+        </header>
+
+
+        <!-- ================= DASHBOARD CARDS ================= -->
+
+        <section class="dashboard-grid">
+
+            <div class="card">
+
+                <h3>
+                    Total Events
+                </h3>
+
+                <p id="eventCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Venues
+                </h3>
+
+                <p id="venueCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Resources
+                </h3>
+
+                <p id="resourceCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Registrations
+                </h3>
+
+                <p id="registrationCount">
+                    0
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Vendors
+                </h3>
+
+                <p id="vendorCount">
+                    0
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= EVENT MANAGEMENT ================= -->
+
+        <div
+            class="section"
+            id="events"
+        >
+
+            <h2>
+                Event Management
+            </h2>
+
+            <form id="eventForm">
+
+                <input
+                    type="text"
+                    id="eventName"
+                    placeholder="Event Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="eventType"
+                    placeholder="Event Type"
+                    required
+                >
+
+                <input
+                    type="date"
+                    id="eventDate"
+                    required
+                >
+
+                <input
+                    type="time"
+                    id="eventTime"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="eventBudget"
+                    placeholder="Event Budget"
+                    min="0"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="eventParticipants"
+                    placeholder="Maximum Participants"
+                    min="1"
+                    required
+                >
+
+                <button type="submit">
+                    Create Event
+                </button>
+
+            </form>
+
+
+            <div id="eventList"></div>
+
+        </div>
+
+
+        <!-- ================= VENUE MANAGEMENT ================= -->
+
+        <div
+            class="section"
+            id="venues"
+        >
+
+            <h2>
+                Venue Management
+            </h2>
+
+            <form id="venueForm">
+
+                <input
+                    type="text"
+                    id="venueName"
+                    placeholder="Venue Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="venueLocation"
+                    placeholder="Location"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="venueCapacity"
+                    placeholder="Capacity"
+                    min="1"
+                    required
+                >
+
+                <button type="submit">
+                    Add Venue
+                </button>
+
+            </form>
+
+
+            <div id="venueList"></div>
+
+
+            <h3>
+                Assign Venue
+            </h3>
+
+            <form id="venueAssignmentForm">
+
+                <select id="eventSelect">
+                    <option value="">
+                        Select Event
+                    </option>
+                </select>
+
+                <select id="venueSelect">
+                    <option value="">
+                        Select Venue
+                    </option>
+                </select>
+
+                <button type="submit">
+                    Assign Venue
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= RESOURCE MANAGEMENT ================= -->
+
+        <div
+            class="section"
+            id="resources"
+        >
+
+            <h2>
+                Resource Management
+            </h2>
+
+            <form id="resourceForm">
+
+                <input
+                    type="text"
+                    id="resourceName"
+                    placeholder="Resource Name"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="resourceQuantity"
+                    placeholder="Quantity"
+                    min="1"
+                    required
+                >
+
+                <button type="submit">
+                    Add Resource
+                </button>
+
+            </form>
+
+
+            <div id="resourceList"></div>
+
+
+            <h3>
+                Allocate Resource
+            </h3>
+
+            <form id="resourceAllocationForm">
+
+                <select id="resourceEvent">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+
+                <select id="resourceSelect">
+
+                    <option value="">
+                        Select Resource
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="number"
+                    id="requiredQuantity"
+                    placeholder="Required Quantity"
+                    min="1"
+                    required
+                >
+
+
+                <button type="submit">
+                    Allocate Resource
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- ================= REGISTRATION ================= -->
+
+        <div
+            class="section"
+            id="registration"
+        >
+
+            <h2>
+                Participant Registration
+            </h2>
+
+            <div class="filter-row">
+
+                <select id="registrationEventFilter">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+                <button onclick="showRegistrations()">
+                    View Registrations
+                </button>
+
+            </div>
+
+
+            <div id="registrationList"></div>
+
+        </div>
+
+
+        <!-- ================= ATTENDANCE ================= -->
+
+        <div class="section">
+
+            <h2>
+                Attendance Check-in
+            </h2>
+
+            <form id="attendanceForm">
+
+                <input
+                    type="text"
+                    id="attendanceTicket"
+                    placeholder="Enter Ticket ID"
+                    required
+                >
+
+                <button type="submit">
+                    Check In
+                </button>
+
+            </form>
+
+            <p id="attendanceMessage"></p>
+
+        </div>
+
+
+        <!-- ================= VENDOR MANAGEMENT ================= -->
+
+        <div
+            class="section"
+            id="vendors"
+        >
+
+            <h2>
+                Vendor Management
+            </h2>
+
+            <form id="vendorForm">
+
+                <input
+                    type="text"
+                    id="vendorName"
+                    placeholder="Vendor Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="vendorService"
+                    placeholder="Service"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="vendorPhone"
+                    placeholder="Phone Number"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="vendorEmail"
+                    placeholder="Email"
+                    required
+                >
+
+                <button type="submit">
+                    Add Vendor
+                </button>
+
+            </form>
+
+
+            <h3>
+                Assign Vendor
+            </h3>
+
+            <form id="vendorAssignmentForm">
+
+                <select id="vendorEvent">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+
+                <select id="vendorSelect">
+
+                    <option value="">
+                        Select Vendor
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="vendorAssignmentService"
+                    placeholder="Assigned Service"
+                    required
+                >
+
+
+                <button type="submit">
+                    Assign Vendor
+                </button>
+
+            </form>
+
+
+            <div id="assignmentList"></div>
+
+        </div>
+
+
+        <!-- ================= REPORTS ================= -->
+
+        <div
+            class="section"
+            id="reports"
+        >
+
+            <h2>
+                Event Reports
+            </h2>
+
+            <button onclick="report()">
+                Generate Report
+            </button>
+
+            <div id="report"></div>
+
+        </div>
+
+
+        <!-- ================= EVENT OPERATIONS ================= -->
+
+        <div
+            class="section"
+            id="eventOperations"
+        >
+
+            <h2>
+                Event Operations
+            </h2>
+
+            <p>
+                Manage event finance, sponsorship,
+                approvals and automated event activities.
+            </p>
+
+            <div class="filter-row">
+
+                <button
+                    onclick="location.href='milestone3.html'"
+                >
+                    Open Event Operations
+                </button>
+
+                <button
+                    onclick="location.href='api.html'"
+                >
+                    System Services
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= EVENT INSIGHTS ================= -->
+
+        <div
+            class="section"
+            id="eventInsights"
+        >
+
+            <h2>
+                Event Insights
+            </h2>
+
+            <p>
+                Analyze registrations, attendance,
+                finances and event performance.
+            </p>
+
+            <div class="filter-row">
+
+                <button
+                    onclick="location.href='analytics.html'"
+                >
+                    Open Event Insights
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MESSAGE ================= -->
+
+        <div id="message"></div>
+
+    </main>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

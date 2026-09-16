@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EventSphere - Event Operations</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="milestone3.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <h2>
+            EventSphere
+        </h2>
+
+
+        <button onclick="location.href='index.html'">
+            Dashboard
+        </button>
+
+
+        <button onclick="location.href='index.html#events'">
+            Events
+        </button>
+
+
+        <button onclick="location.href='index.html#venues'">
+            Venues
+        </button>
+
+
+        <button onclick="location.href='index.html#resources'">
+            Resources
+        </button>
+
+
+        <button onclick="location.href='registration.html'">
+            Registration
+        </button>
+
+
+        <button onclick="location.href='index.html#vendors'">
+            Vendors
+        </button>
+
+
+        <button onclick="location.href='index.html#reports'">
+            Reports
+        </button>
+
+
+        <button onclick="location.href='milestone3.html'">
+            Event Operations
+        </button>
+
+
+        <button onclick="location.href='api.html'">
+            System Services
+        </button>
+
+
+        <button onclick="location.href='analytics.html'">
+            Event Insights
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main">
+
+        <!-- HEADER -->
+
+        <header>
+
+            <h1>
+                Event Operations
+            </h1>
+
+            <p>
+                Finance, Sponsorship, Approvals
+                & Event Automation
+            </p>
+
+        </header>
+
+
+        <!-- ================= KPI CARDS ================= -->
+
+        <section class="m3-dashboard-grid">
+
+
+            <div class="m3-card">
+
+                <h3>
+                    Total Events
+                </h3>
+
+                <div
+                    id="m3EventCount"
+                    class="m3-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="m3-card">
+
+                <h3>
+                    Registrations
+                </h3>
+
+                <div
+                    id="m3AttendeeCount"
+                    class="m3-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="m3-card">
+
+                <h3>
+                    Event Expenses
+                </h3>
+
+                <div
+                    id="m3ExpenseCount"
+                    class="m3-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="m3-card">
+
+                <h3>
+                    Sponsorship Funds
+                </h3>
+
+                <div
+                    id="m3SponsorAmount"
+                    class="m3-number"
+                >
+                    ₹0
+                </div>
+
+            </div>
+
+
+            <div class="m3-card">
+
+                <h3>
+                    Pending Approvals
+                </h3>
+
+                <div
+                    id="m3ApprovalCount"
+                    class="m3-number"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ================= EVENT FINANCE ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Event Finance
+            </h2>
+
+            <form id="expenseForm">
+
+                <select id="expenseEvent">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+
+                <select id="expenseCategory">
+
+                    <option value="">
+                        Expense Category
+                    </option>
+
+                    <option value="Venue">
+                        Venue
+                    </option>
+
+                    <option value="Catering">
+                        Catering
+                    </option>
+
+                    <option value="Staffing">
+                        Staffing
+                    </option>
+
+                    <option value="Marketing">
+                        Marketing
+                    </option>
+
+                    <option value="Logistics">
+                        Logistics
+                    </option>
+
+                    <option value="Equipment">
+                        Equipment
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="expenseDescription"
+                    placeholder="Expense Description"
+                    required
+                >
+
+
+                <input
+                    type="number"
+                    id="expenseAmount"
+                    placeholder="Amount"
+                    min="1"
+                    required
+                >
+
+
+                <button type="submit">
+                    Add Expense
+                </button>
+
+            </form>
+
+
+            <div id="budgetSummary"></div>
+
+            <div id="expenseList"></div>
+
+        </section>
+
+
+        <!-- ================= SPONSORSHIP ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Event Sponsorship
+            </h2>
+
+
+            <form id="sponsorForm">
+
+                <select id="sponsorEvent">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="sponsorName"
+                    placeholder="Sponsor Name"
+                    required
+                >
+
+
+                <input
+                    type="number"
+                    id="sponsorAmount"
+                    placeholder="Sponsorship Amount"
+                    min="1"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="sponsorContact"
+                    placeholder="Sponsor Contact"
+                    required
+                >
+
+
+                <button type="submit">
+                    Add Sponsor
+                </button>
+
+            </form>
+
+
+            <div id="sponsorList"></div>
+
+        </section>
+
+
+        <!-- ================= APPROVALS ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Event Approvals
+            </h2>
+
+
+            <form id="approvalForm">
+
+                <select id="approvalEvent">
+
+                    <option value="">
+                        Select Event
+                    </option>
+
+                </select>
+
+
+                <input
+                    type="text"
+                    id="approvalItem"
+                    placeholder="Request / Item"
+                    required
+                >
+
+
+                <input
+                    type="text"
+                    id="approvalRequestedBy"
+                    placeholder="Requested By"
+                    required
+                >
+
+
+                <button type="submit">
+                    Submit Request
+                </button>
+
+            </form>
+
+
+            <div id="approvalList"></div>
+
+        </section>
+
+
+        <!-- ================= EVENT AUTOMATION ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Event Automation
+            </h2>
+
+            <div class="automation-grid">
+
+
+                <div class="automation-card">
+
+                    <h3>
+                        Registration Updates
+                    </h3>
+
+                    <p>
+                        Automatically notify participants
+                        after successful registration.
+                    </p>
+
+                </div>
+
+
+                <div class="automation-card">
+
+                    <h3>
+                        Event Reminders
+                    </h3>
+
+                    <p>
+                        Send reminders before upcoming
+                        events.
+                    </p>
+
+                </div>
+
+
+                <div class="automation-card">
+
+                    <h3>
+                        Vendor Updates
+                    </h3>
+
+                    <p>
+                        Keep vendors informed about
+                        event activities.
+                    </p>
+
+                </div>
+
+
+                <div class="automation-card">
+
+                    <h3>
+                        Approval Management
+                    </h3>
+
+                    <p>
+                        Manage pending, approved and
+                        rejected requests.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button onclick="loadNotifications()">
+                Refresh Event Updates
+            </button>
+
+
+            <div id="notificationList"></div>
+
+        </section>
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                EventSphere Services
+            </h2>
+
+
+            <div class="filter-row">
+
+                <button
+                    onclick="location.href='index.html'"
+                >
+                    Dashboard
+                </button>
+
+
+                <button
+                    onclick="location.href='api.html'"
+                >
+                    System Services
+                </button>
+
+
+                <button
+                    onclick="location.href='analytics.html'"
+                >
+                    Event Insights
+                </button>
+
+
+                <button
+                    onclick="location.href='roadmap.html'"
+                >
+                    Event Roadmap
+                </button>
+
+
+                <button
+                    onclick="location.href='campus.html'"
+                >
+                    Campus View
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+
+        <div id="message"></div>
+
+    </main>
+
+
+    <script src="milestone3.js"></script>
+
+</body>
+
+</html>

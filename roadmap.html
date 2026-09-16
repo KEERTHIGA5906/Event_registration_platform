@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EventSphere - Event Roadmap</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ==============================
+           MILESTONE 3 - ROADMAP
+           ============================== */
+
+        .roadmap-page {
+            margin-left: 230px;
+            padding: 30px;
+            background: #f4f6f8;
+            min-height: 100vh;
+        }
+
+        .roadmap-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .roadmap-header h2 {
+            margin: 0 0 5px;
+        }
+
+        .roadmap-header p {
+            color: #64748b;
+            margin: 0;
+        }
+
+        .roadmap-card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ddd;
+        }
+
+        .event-title {
+            color: #2563eb;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .event-info {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            color: #475569;
+            margin-top: 15px;
+        }
+
+        /* PROGRESS */
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-number {
+            font-size: 28px;
+            color: #2563eb;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: #2563eb;
+            transition: width 0.4s;
+        }
+
+        /* TIMELINE */
+
+        .timeline {
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 19px;
+            top: 20px;
+            bottom: 20px;
+            width: 3px;
+            background: #cbd5e1;
+        }
+
+        .roadmap-step {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            border-radius: 50%;
+            background: white;
+            border: 3px solid #94a3b8;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: bold;
+            color: #64748b;
+
+            z-index: 2;
+        }
+
+        .roadmap-step.completed .step-number {
+            background: #16a34a;
+            border-color: #16a34a;
+            color: white;
+        }
+
+        .roadmap-step.current .step-number {
+            background: #2563eb;
+            border-color: #2563eb;
+            color: white;
+
+            box-shadow: 0 0 0 6px #dbeafe;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-status {
+            font-size: 11px;
+            font-weight: bold;
+            color: #64748b;
+        }
+
+        .completed .step-status {
+            color: #16a34a;
+        }
+
+        .current .step-status {
+            color: #2563eb;
+        }
+
+        .step-content h3 {
+            margin: 5px 0 8px;
+            font-size: 20px;
+        }
+
+        .step-content p {
+            color: #475569;
+            line-height: 1.6;
+            margin: 0 0 12px;
+        }
+
+        .step-details {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            color: #475569;
+            font-size: 14px;
+        }
+
+        .location-btn {
+            margin-top: 15px;
+            padding: 9px 15px;
+
+            background: #eff6ff;
+            color: #2563eb;
+
+            border: 1px solid #bfdbfe;
+            border-radius: 6px;
+
+            cursor: pointer;
+        }
+
+        .location-btn:hover {
+            background: #dbeafe;
+        }
+
+        .ticket-info {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+        }
+
+        .ticket-info strong {
+            color: #2563eb;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:700px) {
+
+            .roadmap-page {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .roadmap-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .event-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .step-details {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+    <h1>EventSphere</h1>
+
+    <p>Event Management System</p>
+
+
+    <button onclick="location.href='index.html'">
+        Dashboard
+    </button>
+
+
+    <button onclick="location.href='registration.html'">
+        Registration
+    </button>
+
+
+    <button onclick="location.href='ticket.html'">
+        Digital Ticket
+    </button>
+
+
+    <button onclick="location.href='roadmap.html'">
+        Event Roadmap
+    </button>
+    <button onclick="location.href='campus.html'">
+    Campus View
+</button>
+
+</div>
+
+
+
+<!-- MAIN CONTENT -->
+
+<div class="roadmap-page">
+
+
+    <!-- HEADER -->
+
+    <div class="roadmap-header">
+
+        <div>
+
+            <h2>Smart Event Roadmap</h2>
+
+            <p>
+                Your complete step-by-step event journey
+            </p>
+
+        </div>
+
+
+        <button onclick="location.href='index.html'">
+            Dashboard
+        </button>
+
+    </div>
+
+
+
+    <!-- PARTICIPANT INFORMATION -->
+
+    <div class="roadmap-card ticket-info">
+
+        <p>
+            Welcome,
+            <strong id="participantName">
+                Participant
+            </strong>
+        </p>
+
+        <p>
+            This roadmap is based on the event
+            you registered for.
+        </p>
+
+    </div>
+
+
+
+    <!-- EVENT INFORMATION -->
+
+    <div class="roadmap-card">
+
+        <div class="event-title">
+            YOUR REGISTERED EVENT
+        </div>
+
+
+        <h2 id="eventName">
+            Loading event...
+        </h2>
+
+
+        <div class="event-info">
+
+            <span id="eventDate">
+                📅 Loading...
+            </span>
+
+
+            <span id="eventTime">
+                🕘 Loading...
+            </span>
+
+
+            <span id="eventVenue">
+                📍 Loading...
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PROGRESS -->
+
+    <div class="roadmap-card">
+
+        <div class="progress-header">
+
+            <div>
+
+                <h2>Event Progress</h2>
+
+                <p id="progressText">
+                    Loading...
+                </p>
+
+            </div>
+
+
+            <div class="progress-number"
+                 id="progressPercentage">
+
+                0%
+
+            </div>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div class="progress-fill"
+                 id="progressBar">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EVENT JOURNEY -->
+
+    <div class="roadmap-card">
+
+        <h2>Event Journey</h2>
+
+        <p>
+            Follow these steps to reach the correct
+            location and complete your event.
+        </p>
+
+
+        <div id="roadmapContainer"
+             class="timeline">
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="roadmap.js"></script>
+
+
+</body>
+
+</html>

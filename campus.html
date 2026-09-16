@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EventSphere - Campus View</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ===============================
+           CAMPUS VIEW
+           =============================== */
+
+        .campus-page {
+
+            margin-left: 230px;
+
+            padding: 30px;
+
+            background: #f4f6f8;
+
+            min-height: 100vh;
+
+        }
+
+
+        .campus-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .campus-header h2 {
+
+            margin: 0 0 5px;
+
+        }
+
+
+        .campus-header p {
+
+            color: #64748b;
+
+            margin: 0;
+
+        }
+
+
+        /* SEARCH */
+
+        .search-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 8px #ddd;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .search-box {
+
+            display: flex;
+
+            gap: 10px;
+
+            margin-top: 15px;
+
+        }
+
+
+        .search-box input {
+
+            flex: 1;
+
+            padding: 12px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 6px;
+
+            font-size: 15px;
+
+        }
+
+
+        .search-box button {
+
+            padding: 12px 20px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+        }
+
+
+        .search-box button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        /* CAMPUS MAP */
+
+        .map-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 8px #ddd;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .campus-map {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 500px;
+
+            background: #e8f0e8;
+
+            border: 2px solid #cbd5e1;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+
+        }
+
+
+        .campus-road {
+
+            position: absolute;
+
+            background: #d1d5db;
+
+        }
+
+
+        .road-horizontal {
+
+            width: 100%;
+
+            height: 35px;
+
+            top: 230px;
+
+            left: 0;
+
+        }
+
+
+        .road-vertical {
+
+            width: 35px;
+
+            height: 100%;
+
+            left: 48%;
+
+            top: 0;
+
+        }
+
+
+        /* BUILDINGS */
+
+        .building {
+
+            position: absolute;
+
+            background: white;
+
+            border: 2px solid #64748b;
+
+            border-radius: 8px;
+
+            padding: 15px;
+
+            text-align: center;
+
+            box-shadow: 0 3px 8px #cbd5e1;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+
+        }
+
+
+        .building:hover {
+
+            transform: scale(1.05);
+
+            box-shadow: 0 5px 15px #94a3b8;
+
+        }
+
+
+        .building.active {
+
+            border: 3px solid #2563eb;
+
+            background: #eff6ff;
+
+            transform: scale(1.05);
+
+        }
+
+
+        .main-block {
+
+            top: 40px;
+
+            left: 8%;
+
+            width: 160px;
+
+        }
+
+
+        .auditorium {
+
+            top: 60px;
+
+            right: 10%;
+
+            width: 160px;
+
+        }
+
+
+        .seminar {
+
+            bottom: 50px;
+
+            left: 8%;
+
+            width: 160px;
+
+        }
+
+
+        .innovation {
+
+            bottom: 50px;
+
+            right: 10%;
+
+            width: 160px;
+
+        }
+
+
+        .cafeteria {
+
+            top: 150px;
+
+            left: 40%;
+
+            width: 130px;
+
+        }
+
+
+        .building-icon {
+
+            font-size: 28px;
+
+        }
+
+
+        .building-name {
+
+            font-weight: bold;
+
+            margin-top: 5px;
+
+        }
+
+
+        .building-location {
+
+            color: #64748b;
+
+            font-size: 12px;
+
+            margin-top: 5px;
+
+        }
+
+
+        /* VENUE INFORMATION */
+
+        .venue-card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 10px;
+
+            box-shadow: 0 2px 8px #ddd;
+
+        }
+
+
+        .venue-card h2 {
+
+            margin-top: 0;
+
+        }
+
+
+        .venue-details {
+
+            display: flex;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+            margin-top: 15px;
+
+            color: #475569;
+
+        }
+
+
+        .route-box {
+
+            background: #eff6ff;
+
+            border-left: 4px solid #2563eb;
+
+            padding: 15px;
+
+            margin-top: 20px;
+
+            border-radius: 5px;
+
+        }
+
+
+        .route-button {
+
+            margin-top: 15px;
+
+            padding: 10px 18px;
+
+            background: #2563eb;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+        }
+
+
+        .route-button:hover {
+
+            background: #1d4ed8;
+
+        }
+
+
+        .no-result {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #64748b;
+
+        }
+
+
+        /* MOBILE */
+
+        @media(max-width:700px) {
+
+            .campus-page {
+
+                margin-left: 0;
+
+                padding: 15px;
+
+            }
+
+
+            .campus-header {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 15px;
+
+            }
+
+
+            .search-box {
+
+                flex-direction: column;
+
+            }
+
+
+            .campus-map {
+
+                height: 600px;
+
+            }
+
+
+            .main-block {
+
+                left: 5%;
+
+            }
+
+
+            .auditorium {
+
+                right: 5%;
+
+            }
+
+
+            .seminar {
+
+                left: 5%;
+
+            }
+
+
+            .innovation {
+
+                right: 5%;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ===============================
+     SIDEBAR
+     =============================== -->
+
+<div class="sidebar">
+
+    <h1>EventSphere</h1>
+
+    <p>Event Management System</p>
+
+
+    <button onclick="location.href='index.html'">
+        Dashboard
+    </button>
+
+
+    <button onclick="location.href='registration.html'">
+        Registration
+    </button>
+
+
+    <button onclick="location.href='ticket.html'">
+        Digital Ticket
+    </button>
+
+
+    <button onclick="location.href='roadmap.html'">
+        Event Roadmap
+    </button>
+
+
+    <button onclick="location.href='campus.html'">
+        Campus View
+    </button>
+
+</div>
+
+
+
+<!-- ===============================
+     MAIN
+     =============================== -->
+
+<div class="campus-page">
+
+
+    <!-- HEADER -->
+
+    <div class="campus-header">
+
+        <div>
+
+            <h2>📍 Smart Campus View</h2>
+
+            <p>
+                Find the venue for your event easily.
+            </p>
+
+        </div>
+
+
+        <button onclick="location.href='roadmap.html'">
+
+            Event Roadmap
+
+        </button>
+
+    </div>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="search-card">
+
+        <h2>Find a Venue</h2>
+
+        <p>
+            Search for the location where your event
+            activity is happening.
+        </p>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="venueSearch"
+                placeholder="Example: Auditorium, Innovation Lab..."
+                onkeyup="searchVenue()">
+
+
+            <button onclick="searchVenue()">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CAMPUS MAP -->
+
+    <div class="map-card">
+
+        <h2>Campus Map</h2>
+
+        <p>
+            Click on a building to view its details.
+        </p>
+
+
+        <div class="campus-map">
+
+
+            <!-- ROADS -->
+
+            <div class="campus-road road-horizontal"></div>
+
+            <div class="campus-road road-vertical"></div>
+
+
+
+            <!-- MAIN BLOCK -->
+
+            <div class="building main-block"
+                 data-name="Main Block"
+                 onclick="selectVenue('Main Block')">
+
+                <div class="building-icon">
+                    🏫
+                </div>
+
+                <div class="building-name">
+                    Main Block
+                </div>
+
+                <div class="building-location">
+                    Block A
+                </div>
+
+            </div>
+
+
+
+            <!-- AUDITORIUM -->
+
+            <div class="building auditorium"
+                 data-name="Main Auditorium"
+                 onclick="selectVenue('Main Auditorium')">
+
+                <div class="building-icon">
+                    🎭
+                </div>
+
+                <div class="building-name">
+                    Main Auditorium
+                </div>
+
+                <div class="building-location">
+                    Block A
+                </div>
+
+            </div>
+
+
+
+            <!-- SEMINAR HALL -->
+
+            <div class="building seminar"
+                 data-name="Seminar Hall"
+                 onclick="selectVenue('Seminar Hall')">
+
+                <div class="building-icon">
+                    🏢
+                </div>
+
+                <div class="building-name">
+                    Seminar Hall
+                </div>
+
+                <div class="building-location">
+                    Block B
+                </div>
+
+            </div>
+
+
+
+            <!-- INNOVATION LAB -->
+
+            <div class="building innovation"
+                 data-name="Innovation Lab"
+                 onclick="selectVenue('Innovation Lab')">
+
+                <div class="building-icon">
+                    💻
+                </div>
+
+                <div class="building-name">
+                    Innovation Lab
+                </div>
+
+                <div class="building-location">
+                    Block B
+                </div>
+
+            </div>
+
+
+
+            <!-- CAFETERIA -->
+
+            <div class="building cafeteria"
+                 data-name="Cafeteria"
+                 onclick="selectVenue('Cafeteria')">
+
+                <div class="building-icon">
+                    🍴
+                </div>
+
+                <div class="building-name">
+                    Cafeteria
+                </div>
+
+                <div class="building-location">
+                    Central Area
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- VENUE DETAILS -->
+
+    <div class="venue-card">
+
+        <h2 id="venueTitle">
+            Select a venue
+        </h2>
+
+
+        <p id="venueDescription">
+
+            Click any building on the campus map
+            to see its location and details.
+
+        </p>
+
+
+        <div class="venue-details">
+
+            <span id="venueBlock">
+                🏢 Block: -
+            </span>
+
+
+            <span id="venueFloor">
+                🏬 Floor: -
+            </span>
+
+
+            <span id="venueType">
+                📌 Type: -
+            </span>
+
+        </div>
+
+
+        <div class="route-box">
+
+            <strong>
+                🧭 Route Information
+            </strong>
+
+
+            <p id="routeText">
+
+                Select a venue to see the suggested route.
+
+            </p>
+
+
+            <button
+                class="route-button"
+                onclick="showRoute()">
+
+                🧭 Show Route
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<script src="campus.js"></script>
+
+
+</body>
+
+</html>

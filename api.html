@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EventSphere - System Services</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="milestone3.css"
+    >
+
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar">
+
+        <h2>
+            EventSphere
+        </h2>
+
+
+        <button onclick="location.href='index.html'">
+            Dashboard
+        </button>
+
+
+        <button onclick="location.href='index.html#events'">
+            Events
+        </button>
+
+
+        <button onclick="location.href='index.html#venues'">
+            Venues
+        </button>
+
+
+        <button onclick="location.href='index.html#resources'">
+            Resources
+        </button>
+
+
+        <button onclick="location.href='registration.html'">
+            Registration
+        </button>
+
+
+        <button onclick="location.href='index.html#vendors'">
+            Vendors
+        </button>
+
+
+        <button onclick="location.href='index.html#reports'">
+            Reports
+        </button>
+
+
+        <button onclick="location.href='milestone3.html'">
+            Event Operations
+        </button>
+
+
+        <button onclick="location.href='api.html'">
+            System Services
+        </button>
+
+
+        <button onclick="location.href='analytics.html'">
+            Event Insights
+        </button>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <header>
+
+            <h1>
+                System Services
+            </h1>
+
+            <p>
+                EventSphere services for managing
+                events, participants, resources,
+                vendors and finance.
+            </p>
+
+        </header>
+
+
+        <!-- ================= SERVICE STATUS ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Service Status
+            </h2>
+
+
+            <div
+                id="apiStatus"
+                class="api-status"
+            >
+                Checking services...
+            </div>
+
+
+            <button onclick="checkAPI()">
+                Check Services
+            </button>
+
+
+            <div
+                id="apiResult"
+                class="api-code"
+            ></div>
+
+        </section>
+
+
+        <!-- ================= EVENT SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Event Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <h3>
+                    Event Management
+                </h3>
+
+                <p>
+                    <strong>GET</strong>
+                    /events
+                </p>
+
+                <p>
+                    View all registered events.
+                </p>
+
+                <p>
+                    <strong>POST</strong>
+                    /events
+                </p>
+
+                <p>
+                    Create a new event.
+                </p>
+
+                <p>
+                    <strong>PUT</strong>
+                    /events/&lt;id&gt;
+                </p>
+
+                <p>
+                    Update event information.
+                </p>
+
+                <p>
+                    <strong>DELETE</strong>
+                    /events/&lt;id&gt;
+                </p>
+
+                <p>
+                    Remove an event.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PARTICIPANT SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Participant Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <h3>
+                    Registration Services
+                </h3>
+
+                <p>
+                    <strong>GET</strong>
+                    /attendees
+                </p>
+
+                <p>
+                    View registered participants.
+                </p>
+
+                <p>
+                    <strong>POST</strong>
+                    /attendees
+                </p>
+
+                <p>
+                    Register a participant.
+                </p>
+
+                <p>
+                    <strong>PUT</strong>
+                    /attendees/&lt;id&gt;
+                </p>
+
+                <p>
+                    Update participant information.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESOURCE SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Resource Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /resources
+                </p>
+
+                <p>
+                    View available event resources.
+                </p>
+
+
+                <p>
+                    <strong>POST</strong>
+                    /resources
+                </p>
+
+                <p>
+                    Add event resources.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= VENDOR SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Vendor Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /vendors
+                </p>
+
+                <p>
+                    View registered vendors.
+                </p>
+
+
+                <p>
+                    <strong>POST</strong>
+                    /vendors
+                </p>
+
+                <p>
+                    Add a new vendor.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FINANCE SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Finance Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /budget/&lt;event_id&gt;
+                </p>
+
+                <p>
+                    View event budget summary.
+                </p>
+
+
+                <p>
+                    <strong>GET</strong>
+                    /expenses
+                </p>
+
+                <p>
+                    View event expenses.
+                </p>
+
+
+                <p>
+                    <strong>POST</strong>
+                    /expenses
+                </p>
+
+                <p>
+                    Add an event expense.
+                </p>
+
+
+                <p>
+                    <strong>DELETE</strong>
+                    /expenses/&lt;id&gt;
+                </p>
+
+                <p>
+                    Remove an expense.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SPONSORSHIP ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Sponsorship Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /sponsors
+                </p>
+
+                <p>
+                    View event sponsors.
+                </p>
+
+
+                <p>
+                    <strong>POST</strong>
+                    /sponsors
+                </p>
+
+                <p>
+                    Add a new sponsor.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= APPROVAL SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Approval Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /approvals
+                </p>
+
+                <p>
+                    View event approval requests.
+                </p>
+
+
+                <p>
+                    <strong>POST</strong>
+                    /approvals
+                </p>
+
+                <p>
+                    Create an approval request.
+                </p>
+
+
+                <p>
+                    <strong>PUT</strong>
+                    /approvals/&lt;id&gt;
+                </p>
+
+                <p>
+                    Approve or reject a request.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= NOTIFICATION SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Notification Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /notifications
+                </p>
+
+                <p>
+                    View event notifications.
+                </p>
+
+
+                <p>
+                    <strong>POST</strong>
+                    /notifications
+                </p>
+
+                <p>
+                    Create a notification.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AUTOMATION ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Event Automation
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /reminders
+                </p>
+
+                <p>
+                    Generate and retrieve upcoming
+                    event reminders.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DASHBOARD SERVICES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Dashboard Services
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /dashboard
+                </p>
+
+                <p>
+                    Retrieve EventSphere dashboard
+                    statistics.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SYSTEM HEALTH ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                System Health
+            </h2>
+
+
+            <div class="api-endpoint">
+
+                <p>
+                    <strong>GET</strong>
+                    /health
+                </p>
+
+                <p>
+                    Check whether EventSphere services
+                    are running correctly.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESPONSE CODES ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                Service Response Codes
+            </h2>
+
+
+            <div class="api-code">
+
+                <p>
+                    <strong>200</strong>
+                    - Request successful
+                </p>
+
+                <p>
+                    <strong>201</strong>
+                    - Resource created successfully
+                </p>
+
+                <p>
+                    <strong>400</strong>
+                    - Invalid request
+                </p>
+
+                <p>
+                    <strong>401</strong>
+                    - Unauthorized request
+                </p>
+
+                <p>
+                    <strong>404</strong>
+                    - Resource not found
+                </p>
+
+                <p>
+                    <strong>500</strong>
+                    - Server error
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= QUICK LINKS ================= -->
+
+        <section class="m3-section">
+
+            <h2>
+                EventSphere Navigation
+            </h2>
+
+
+            <div class="filter-row">
+
+                <button
+                    onclick="location.href='index.html'"
+                >
+                    Dashboard
+                </button>
+
+
+                <button
+                    onclick="location.href='milestone3.html'"
+                >
+                    Event Operations
+                </button>
+
+
+                <button
+                    onclick="location.href='analytics.html'"
+                >
+                    Event Insights
+                </button>
+
+
+                <button
+                    onclick="location.href='roadmap.html'"
+                >
+                    Event Roadmap
+                </button>
+
+
+                <button
+                    onclick="location.href='campus.html'"
+                >
+                    Campus View
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="api.js"></script>
+
+</body>
+
+</html>

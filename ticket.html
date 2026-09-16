@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>EventSphere - Digital Ticket</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="ticket-page">
+
+
+<div class="ticket-container">
+
+
+    <!-- DIGITAL TICKET -->
+
+    <div class="ticket">
+
+
+        <!-- TICKET HEADER -->
+
+        <div class="ticket-top">
+
+            <h1>EventSphere</h1>
+
+            <p>
+                Digital Event Ticket
+            </p>
+
+        </div>
+
+
+
+        <!-- TICKET BODY -->
+
+        <div class="ticket-body">
+
+
+            <!-- PARTICIPANT DETAILS -->
+
+            <div class="ticket-info">
+
+
+                <p>
+
+                    <span>
+                        Participant
+                    </span>
+
+                    <b id="ticketName"></b>
+
+                </p>
+
+
+
+                <p>
+
+                    <span>
+                        Registration ID
+                    </span>
+
+                    <b id="ticketReg"></b>
+
+                </p>
+
+
+
+                <p>
+
+                    <span>
+                        Ticket ID
+                    </span>
+
+                    <b id="ticketId"></b>
+
+                </p>
+
+
+
+                <p>
+
+                    <span>
+                        Event
+                    </span>
+
+                    <b id="ticketEvent"></b>
+
+                </p>
+
+
+
+                <p>
+
+                    <span>
+                        Date
+                    </span>
+
+                    <b id="ticketDate"></b>
+
+                </p>
+
+
+
+                <p>
+
+                    <span>
+                        Time
+                    </span>
+
+                    <b id="ticketTime"></b>
+
+                </p>
+
+
+
+                <p>
+
+                    <span>
+                        Venue
+                    </span>
+
+                    <b id="ticketVenue"></b>
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- QR CODE -->
+
+            <div class="qr-area">
+
+                <div id="qrcode"></div>
+
+                <small>
+                    Scan to verify ticket
+                </small>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- TICKET FOOTER -->
+
+        <div class="ticket-footer">
+
+            <p>
+                Please show this ticket during entry.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==================================
+         ACTION BUTTONS
+         ================================== -->
+
+    <div class="ticket-actions">
+
+
+        <!-- PRINT -->
+
+        <button onclick="window.print()">
+
+            Print Ticket
+
+        </button>
+
+
+
+        <!-- NEW MILESTONE 3 BUTTON -->
+
+        <button
+            onclick="location.href='roadmap.html'">
+
+            Event Roadmap
+
+        </button>
+        <button onclick="location.href='campus.html'">
+    Campus View
+</button>
+
+
+
+        <!-- DASHBOARD -->
+
+        <button
+            onclick="location.href='index.html'">
+
+            Dashboard
+
+        </button>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- QR CODE LIBRARY -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
+
+
+<!-- EXISTING MILESTONE 2 JAVASCRIPT -->
+
+<script src="ticket.js"></script>
+
+
+</body>
+
+</html>
